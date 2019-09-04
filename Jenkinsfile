@@ -1,9 +1,5 @@
 pipeline {
     agent any
-    tools {
-        maven 'Maven 3.3.9'
-        jdk 'jdk8'
-    }
     environment {
         DOCKER_IMAGE_NAME = "highelf/jenkins-spring-boot-test"
         CANARY_REPLICAS = 0
