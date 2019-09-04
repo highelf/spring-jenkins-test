@@ -9,7 +9,7 @@ pipeline {
             steps {
                 echo 'Running build automation'
                 sh 'mvn package'
-                archiveArtifacts artifacts: 'target/SpringBoot.zip'
+                archiveArtifacts artifacts: 'target/*'
             }
         }
         stage('Build Docker Image') {
