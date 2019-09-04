@@ -8,7 +8,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Running build automation'
-                sh './mvn package'
+                sh 'mvn package'
                 archiveArtifacts artifacts: 'target/*'
             }
         }
