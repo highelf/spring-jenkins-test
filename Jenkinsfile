@@ -1,11 +1,12 @@
 pipeline {
-    agent any
+    agent none
     environment {
         DOCKER_IMAGE_NAME = "highelf/jenkins-spring-boot-test"
         CANARY_REPLICAS = 0
     }
     stages {
         stage('Build') {
+            agent { docker 'maven:3-alpine' }
             steps {
                 echo 'Running build automation'
                 sh 'mvn package'
