@@ -6,7 +6,7 @@ pipeline {
     }
     stages {
         stage('Build') {
-            withMaven() {
+            withMaven(maven: 'myMaven', mavenSettingsConfig:'my-maven-settings') {
                echo 'Build Maven Package'
                sh 'mvn package'
                archiveArtifacts artifacts: 'target/*'
