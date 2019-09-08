@@ -6,10 +6,12 @@ pipeline {
     }
     stages {
         stage('Build') {
-            withMaven(maven: 'myMaven', mavenSettingsConfig:'my-maven-settings') {
-               echo 'Build Maven Package'
-               sh 'mvn package'
-               archiveArtifacts artifacts: 'target/*'
+            steps{
+                withMaven(maven: 'myMaven', mavenSettingsConfig:'my-maven-settings') {
+                    echo 'Build Maven Package'
+                    sh 'mvn package'
+                    archiveArtifacts artifacts: 'target/*'
+                }
             }
         }
         stage('Build Docker Image') {
