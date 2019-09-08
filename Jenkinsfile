@@ -6,7 +6,6 @@ pipeline {
     }
     stages {
         stage('Build') {
-            agent { docker 'maven:3-alpine' }
             steps {
                 echo 'Running build automation'
                 sh 'mvn package'
