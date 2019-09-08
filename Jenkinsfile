@@ -4,9 +4,6 @@ pipeline {
         DOCKER_IMAGE_NAME = "highelf/jenkins-spring-boot-test"
         CANARY_REPLICAS = 0
     }
-    tools {
-        maven 'myMaven' 
-    }
     stages {
         stage('Build') {
             steps{
