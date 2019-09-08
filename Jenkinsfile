@@ -6,10 +6,10 @@ pipeline {
     }
     stages {
         stage('Build') {
-            steps {
-                echo 'Running build automation'
-                sh 'mvn package'
-                archiveArtifacts artifacts: 'target/*'
+            withMaven() {
+               echo 'Build Maven Package'
+               sh 'mvn package'
+               archiveArtifacts artifacts: 'target/*'
             }
         }
         stage('Build Docker Image') {
