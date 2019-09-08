@@ -4,14 +4,15 @@ pipeline {
         DOCKER_IMAGE_NAME = "highelf/jenkins-spring-boot-test"
         CANARY_REPLICAS = 0
     }
+    tools {
+        maven 'apache-maven-3.0.1' 
+    }
     stages {
         stage('Build') {
             steps{
-                withMaven(maven: 'myMaven', mavenSettingsConfig:'my-maven-settings') {
-                    echo 'Build Maven Package'
-                    sh 'mvn package'
-                    archiveArtifacts artifacts: 'target/*'
-                }
+                echo 'Build Maven Package'
+                sh 'mvn package'
+                archiveArtifacts artifacts: 'target/*'
             }
         }
         stage('Build Docker Image') {
